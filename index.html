@@ -37,6 +37,15 @@
             padding: 20px;
         }
 
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -60,6 +69,8 @@
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
+        <a href="#login">Login</a>
+        <a href="#subscribe">Subscribe</a>
     </nav>
 
     <section id="home">
@@ -84,6 +95,12 @@
             Utilize our secure submission forms to send patient data to our Google Sheets database. Analyze and visualize
             metrics using tools like Power BI.
         </p>
+        <form action="#" method="post">
+            <label for="patientData">Submit Patient Data:</label>
+            <textarea id="patientData" name="patientData" rows="4" required></textarea>
+            <br>
+            <button type="submit">Submit Data</button>
+        </form>
     </section>
 
     <section id="contact">
@@ -92,6 +109,43 @@
             For secure data submission or more information, please contact us at
             <a href="mailto:info@ptmeasures.com">info@ptmeasures.com</a>.
         </p>
+    </section>
+
+    <section id="login">
+        <h2>Login</h2>
+        <p>
+            Already a member? Log in below.
+        </p>
+        <form action="#" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section id="subscribe">
+        <h2>Subscription Plans</h2>
+        <p>Choose the plan that suits your clinic's needs:</p>
+
+        <h3>Basic Clinic Membership (Free Trial)</h3>
+        <p>Access for 1 clinic and up to 2 clinicians, up to 10 patients to trial our outcome tracking service.</p>
+
+        <h3>Standard Clinic Membership</h3>
+        <p>$9.95 per clinic, per month, with an additional $0.25 per patient per month during their active POC. This
+            includes standard access for up to 10 clinics and unlimited access to our outcome tracking services.</p>
+
+        <h3>Premium Clinic Membership</h3>
+        <p>Customize your plan for advanced features. Contact us for pricing details.</p>
+
+        <h3>Bulk Subscription</h3>
+        <p>For larger organizations or networks. Contact us for custom pricing and features.</p>
+
+        <p>Contact us at <a href="mailto:subscriptions@ptmeasures.com">subscriptions@ptmeasures.com</a> to subscribe or
+            inquire about our subscription plans.</p>
     </section>
 
     <footer>
