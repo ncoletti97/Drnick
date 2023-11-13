@@ -49,8 +49,9 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
+            margin: 20px auto;
             overflow: hidden;
+            max-width: 800px;
         }
 
         button {
@@ -116,9 +117,21 @@
             color: #fff;
             text-align: center;
             padding: 1em;
-            position: fixed;
+            position: absolute;
             bottom: 0;
             width: 100%;
+            display: none;
+        }
+
+        .video-container {
+            float: right;
+            width: 300px; /* Adjust the width based on your preference */
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
     </style>
 </head>
@@ -144,24 +157,27 @@
     <section id="home">
         <h2>Welcome to PTmeasures</h2>
         <p>
-            We specialize in secure outcome measure tracking for physical therapists. Submit patient data securely for
-            analysis and visualization.
+            PTmeasures provides a sophisticated outcome measure tracking and analysis service tailored for physical therapy
+            clinics and practice owners. Track clinic performance, assess individual clinician effectiveness, and compare
+            data against normative benchmarks. Elevate your practice with PTmeasures.
         </p>
     </section>
 
     <section id="about">
         <h2>About PTmeasures</h2>
         <p>
-            PTmeasures is committed to providing a secure and comprehensive outcome measure tracking solution for
-            physical therapy professionals.
+            PTmeasures is dedicated to delivering a secure and comprehensive outcome measure tracking solution for
+            physical therapy professionals. Our platform empowers clinics to make informed decisions based on real-time
+            data insights.
         </p>
     </section>
 
     <section id="services">
         <h2>Our Services</h2>
         <p>
-            Utilize our secure submission forms to send patient data to our Google Sheets database. Analyze and visualize
-            metrics using tools like Power BI.
+            PTmeasures offers a secure submission platform to send patient data to our Google Sheets database. Leverage
+            powerful analytics tools like Power BI to visualize clinic and clinician performance metrics. Our service
+            facilitates clinic performance tracking, individual clinician assessment, and normative data comparisons.
         </p>
         <button onclick="openPopup()">Submit Patient Outcomes</button>
     </section>
@@ -193,9 +209,13 @@
 
     <div class="overlay" id="overlay" onclick="closePopup()"></div>
 
-    <footer>
+    <footer id="footer">
         <p>&copy; 2023 PTmeasures. All rights reserved.</p>
     </footer>
+
+    <div class="video-container">
+        <p>Video embed of product showcase here</p>
+    </div>
 
     <script>
         function openPopup() {
@@ -240,6 +260,15 @@
 
             closePopup();
         }
+
+        window.onscroll = function () {
+            var footer = document.getElementById('footer');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'none';
+            }
+        };
     </script>
 
 </body>
