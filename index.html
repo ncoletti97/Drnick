@@ -160,6 +160,51 @@
             text-align: center;
         }
     </style>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function submitPatientOutcome() {
+            var patientName = document.getElementById("patientName").value;
+            var patientDOB = document.getElementById("patientDOB").value;
+            var outcomeMeasure = document.getElementById("outcomeMeasure").value;
+            var score = document.getElementById("score").value;
+            var evaluatingTherapist = document.getElementById("evaluatingTherapist").value;
+
+            var data = {
+                patientName: patientName,
+                patientDOB: patientDOB,
+                outcomeMeasure: outcomeMeasure,
+                score: score,
+                evaluatingTherapist: evaluatingTherapist,
+            };
+
+            fetch('https://your-actual-endpoint.com', {  // Replace with your actual endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.text())
+                .then(message => {
+                    console.log(message);
+                    // You can add additional logic here, such as displaying a success message
+                    // or closing the popup after successful submission.
+                })
+                .catch(error => console.error(error));
+
+            closePopup();
+        }
+    </script>
 </head>
 
 <body>
@@ -246,49 +291,6 @@
     </div>
 
     <script>
-        function openPopup() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function submitPatientOutcome() {
-            var patientName = document.getElementById("patientName").value;
-            var patientDOB = document.getElementById("patientDOB").value;
-            var outcomeMeasure = document.getElementById("outcomeMeasure").value;
-            var score = document.getElementById("score").value;
-            var evaluatingTherapist = document.getElementById("evaluatingTherapist").value;
-
-            var data = {
-                patientName: patientName,
-                patientDOB: patientDOB,
-                outcomeMeasure: outcomeMeasure,
-                score: score,
-                evaluatingTherapist: evaluatingTherapist,
-            };
-
-            fetch('https://script.google.com/macros/s/AKfycbzKgSloROugruWYSMLTm2yDwWC9Fnnj-iiQx5kcARnknWHQLVjeKnBPL62iMObeSYMj6Q/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-                .then(response => response.text())
-                .then(message => {
-                    console.log(message);
-                    // You can add additional logic here, such as displaying a success message
-                    // or closing the popup after successful submission.
-                })
-                .catch(error => console.error(error));
-
-            closePopup();
-        }
-
         window.onscroll = function () {
             var nav = document.querySelector('nav');
             var footer = document.querySelector('footer');
