@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTmeasures - Services</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            margin-bottom: 20px;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-container a {
+            background-color: #0070c9;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: #0070c9;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px;
+            background-color: #fff;
+            margin: 20px auto;
+            overflow: hidden;
+            max-width: 1200px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        button {
+            background-color: #0070c9;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00508f;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-container {
+            float: right;
+            width: 600px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="font-size: 2em;">PTmeasures - Outcome Measure Tracking Service</h1>
+    </header>
+
+    <div class="login-container">
+        <a href="#login">Login</a>
+        <a href="#signup">Sign Up</a>
+    </div>
+
+    <nav>
+        <a href="index.html#home">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <section>
+        <h2 style="font-size: 2em;">Our Services</h2>
+        <p style="font-size: 1.2em;">
+            PTmeasures offers a secure submission platform to send patient data to our Google Sheets database. Leverage
+            powerful analytics tools like Power BI to visualize clinic and clinician performance metrics. Our service
+            facilitates clinic performance tracking, individual clinician assessment, and normative data comparisons.
+        </p>
+        <button onclick="openPopup()">Submit Patient Outcomes</button>
+    </section>
+
+    <div class="popup" id="popup">
+        <h3 style="font-size: 2em;">Submit Patient Outcomes</h3>
+        <form id="patientOutcomeForm" onsubmit="submitPatientOutcome(); return false;">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+            <label for="patientDOB">Patient DOB:</label>
+            <input type="date" id="patientDOB" name="patientDOB" required>
+            <label for="outcomeMeasure">Outcome Measure:</label>
+            <input type="text" id="outcomeMeasure" name="outcomeMeasure" required>
+            <label for="score">Score:</label>
+            <input type="number" id="score" name="score" required>
+            <label for="evaluatingTherapist">Evaluating Therapist:</label>
+            <input type="text" id="evaluatingTherapist" name="evaluatingTherapist" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+    <footer>
+        <div id="footer-content">
+            <p style="margin: 0; font-size: 1.2em;">&copy; 2023 PTmeasures. All rights reserved.</p>
+            <p style="margin: 0; font-size: 1.2em;"><a href="mailto:info@ptmeasures.com">Contact us</a></p>
+        </div>
+    </footer>
+
+    <div class="video-container">
+        <p style="font-size: 1.5em;">Video embed of product showcase here</p>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function submitPatientOutcome() {
+            var patientName = document.getElementById("patientName").value;
+            var patientDOB = document.getElementById("patientDOB").value;
+            var outcomeMeasure = document.getElementById("outcomeMeasure").value;
+            var score = document.getElementById("score").value;
+            var evaluatingTherapist = document.getElementById("evaluatingTherapist").value;
+
+            var data = {
+                patientName: patientName,
+                patientDOB: patientDOB,
+                outcomeMeasure: outcomeMeasure,
+                score: score,
+                evaluatingTherapist: evaluatingTherapist,
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbzKgSloROugruWYSMLTm2yDwWC9Fnnj-iiQx5kcARnknWHQLVjeKnBPL62iMObeSYMj6Q/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.text())
+                .then(message => {
+                    console.log(message);
+                    // You can add additional logic here, such as displaying a success message
+                    // or closing the popup after successful submission.
+                })
+                .catch(error => console.error(error));
+
+            closePopup();
+        }
+
+        window.onscroll = function () {
+            var nav = document.querySelector('nav');
+            var footer = document.querySelector('footer');
+
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - footer.offsetHeight) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+
+</html>
 
