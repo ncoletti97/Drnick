@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTmeasures - Outcome Measure Tracking Service</title>
     <style>
-        /* Your existing styles go here */
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
@@ -67,6 +66,14 @@
             max-width: 1200px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1.2em;
         }
 
         button {
@@ -160,6 +167,20 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+
+        /* Additional styles for enhanced visual appeal */
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -190,6 +211,30 @@
         </p>
     </section>
 
+    <section id="features">
+        <h2 style="font-size: 2em;">Key Features</h2>
+
+        <div class="feature-card">
+            <img src="feature_icon1.png" alt="Feature Icon 1" class="feature-icon">
+            <h3>Secure Data Storage</h3>
+            <p>Our platform ensures the confidentiality and integrity of your patient data with state-of-the-art security measures.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="feature_icon2.png" alt="Feature Icon 2" class="feature-icon">
+            <h3>Real-time Analytics</h3>
+            <p>Get instant insights into clinic and clinician performance metrics with our powerful real-time analytics tools.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="feature_icon3.png" alt="Feature Icon 3" class="feature-icon">
+            <h3>User-friendly Interface</h3>
+            <p>Our intuitive interface makes it easy for clinicians to input and analyze outcome measures efficiently.</p>
+        </div>
+        <!-- Add more feature cards as needed -->
+
+    </section>
+
     <section id="about">
         <h2 style="font-size: 2em;">About PTmeasures</h2>
         <p style="font-size: 1.2em;">
@@ -197,16 +242,6 @@
             physical therapy professionals. Our platform empowers clinics to make informed decisions based on real-time
             data insights.
         </p>
-    </section>
-
-    <section id="services">
-        <h2 style="font-size: 2em;">Our Services</h2>
-        <p style="font-size: 1.2em;">
-            PTmeasures offers a secure submission platform to send patient data to our Google Sheets database. Leverage
-            powerful analytics tools like Power BI to visualize clinic and clinician performance metrics. Our service
-            facilitates clinic performance tracking, individual clinician assessment, and normative data comparisons.
-        </p>
-        <button onclick="openPopup()">Submit Patient Outcomes</button>
     </section>
 
     <section id="contact">
