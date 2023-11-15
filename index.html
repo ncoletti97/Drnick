@@ -161,9 +161,9 @@
         }
 
         .video-container {
-            float: left;
-            width: 48%;
-            margin: 20px;
+            float: none; /* Center the video container */
+            clear: both;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -215,16 +215,6 @@
 
             closePopup();
         }
-
-        function login() {
-            // Implement your login logic here
-            alert('Login functionality to be implemented');
-        }
-
-        function signUp() {
-            // Implement your sign up logic here
-            alert('Sign up functionality to be implemented');
-        }
     </script>
 </head>
 
@@ -240,10 +230,10 @@
     </div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
     <section id="home">
@@ -318,6 +308,16 @@
     </footer>
 
     <script>
+        function login() {
+            // Add your login logic here
+            alert('Login functionality to be implemented.');
+        }
+
+        function signUp() {
+            // Add your sign-up logic here
+            alert('Sign-up functionality to be implemented.');
+        }
+
         window.onscroll = function () {
             var nav = document.querySelector('nav');
             var footer = document.querySelector('footer');
