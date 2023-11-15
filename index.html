@@ -68,14 +68,6 @@
             border-radius: 15px;
         }
 
-        h2 {
-            font-size: 2em;
-        }
-
-        p {
-            font-size: 1.2em;
-        }
-
         button {
             background-color: #0070c9;
             color: #fff;
@@ -157,9 +149,9 @@
             align-items: center;
         }
 
-        .video-container {
-            float: right;
-            width: 600px;
+        .content-box {
+            float: left;
+            width: 48%;
             margin: 20px;
             padding: 20px;
             background-color: #fff;
@@ -168,118 +160,17 @@
             text-align: center;
         }
 
-        /* Additional styles for enhanced visual appeal */
-
-        .feature-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .feature-icon {
-            width: 80px;
-            margin-bottom: 10px;
+        .video-container {
+            float: left;
+            width: 48%;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
     </style>
-</head>
-
-<body>
-
-    <header>
-        <h1 style="font-size: 2em;">PTmeasures - Outcome Measure Tracking Service</h1>
-    </header>
-
-    <div class="login-container">
-        <a href="#login">Login</a>
-        <a href="#signup">Sign Up</a>
-    </div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="home">
-        <h2 style="font-size: 2em;">Welcome to PTmeasures</h2>
-        <p style="font-size: 1.2em;">
-            PTmeasures provides a sophisticated outcome measure tracking and analysis service tailored for physical therapy
-            clinics and practice owners. Track clinic performance, assess individual clinician effectiveness, and compare
-            data against normative benchmarks. Elevate your practice with PTmeasures.
-        </p>
-    </section>
-
-    <section id="features">
-        <h2 style="font-size: 2em;">Key Features</h2>
-
-        <div class="feature-card">
-            <img src="feature_icon1.png" alt="Feature Icon 1" class="feature-icon">
-            <h3>Secure Data Storage</h3>
-            <p>Our platform ensures the confidentiality and integrity of your patient data with state-of-the-art security measures.</p>
-        </div>
-
-        <div class="feature-card">
-            <img src="feature_icon2.png" alt="Feature Icon 2" class="feature-icon">
-            <h3>Real-time Analytics</h3>
-            <p>Get instant insights into clinic and clinician performance metrics with our powerful real-time analytics tools.</p>
-        </div>
-
-        <div class="feature-card">
-            <img src="feature_icon3.png" alt="Feature Icon 3" class="feature-icon">
-            <h3>User-friendly Interface</h3>
-            <p>Our intuitive interface makes it easy for clinicians to input and analyze outcome measures efficiently.</p>
-        </div>
-        <!-- Add more feature cards as needed -->
-
-    </section>
-
-    <section id="about">
-        <h2 style="font-size: 2em;">About PTmeasures</h2>
-        <p style="font-size: 1.2em;">
-            PTmeasures is dedicated to delivering a secure and comprehensive outcome measure tracking solution for
-            physical therapy professionals. Our platform empowers clinics to make informed decisions based on real-time
-            data insights.
-        </p>
-    </section>
-
-    <section id="contact">
-        <h2 style="font-size: 2em;">Contact PTmeasures</h2>
-        <p style="font-size: 1.2em;">
-            <a href="mailto:info@ptmeasures.com">info@ptmeasures.com</a>
-        </p>
-    </section>
-
-    <div class="popup" id="popup">
-        <h3 style="font-size: 2em;">Submit Patient Outcomes</h3>
-        <form id="patientOutcomeForm" onsubmit="submitPatientOutcome(); return false;">
-            <label for="patientName">Patient Name:</label>
-            <input type="text" id="patientName" name="patientName" required>
-            <label for="patientDOB">Patient DOB:</label>
-            <input type="date" id="patientDOB" name="patientDOB" required>
-            <label for="outcomeMeasure">Outcome Measure:</label>
-            <input type="text" id="outcomeMeasure" name="outcomeMeasure" required>
-            <label for="score">Score:</label>
-            <input type="number" id="score" name="score" required>
-            <label for="evaluatingTherapist">Evaluating Therapist:</label>
-            <input type="text" id="evaluatingTherapist" name="evaluatingTherapist" required>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <div class="overlay" id="overlay" onclick="closePopup()"></div>
-
-    <footer>
-        <div id="footer-content">
-            <p style="margin: 0; font-size: 1.2em;">&copy; 2023 PTmeasures. All rights reserved.</p>
-            <p style="margin: 0; font-size: 1.2em;"><a href="mailto:info@ptmeasures.com">Contact us</a></p>
-        </div>
-    </footer>
-
-    <div class="video-container">
-        <p style="font-size: 1.5em;">Video embed of product showcase here</p>
-    </div>
 
     <script>
         function openPopup() {
@@ -307,7 +198,7 @@
                 evaluatingTherapist: evaluatingTherapist,
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbzKgSloROugruWYSMLTm2yDwWC9Fnnj-iiQx5kcARnknWHQLVjeKnBPL62iMObeSYMj6Q/exec', {
+            fetch('https://your-actual-endpoint.com', {  // Replace with your actual endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -325,6 +216,108 @@
             closePopup();
         }
 
+        function login() {
+            // Implement your login logic here
+            alert('Login functionality to be implemented');
+        }
+
+        function signUp() {
+            // Implement your sign up logic here
+            alert('Sign up functionality to be implemented');
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="font-size: 2em;">PTmeasures - Outcome Measure Tracking Service</h1>
+    </header>
+
+    <div class="login-container">
+        <button onclick="login()">Login</button>
+        <button onclick="signUp()">Sign Up</button>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to PTmeasures</h2>
+        <div class="content-box">
+            <h3>Track Clinic Performance</h3>
+            <p>Measure and analyze clinic performance with our sophisticated tracking tools.</p>
+        </div>
+        <div class="content-box">
+            <h3>Assess Clinician Effectiveness</h3>
+            <p>Evaluate individual clinician effectiveness to optimize your practice.</p>
+        </div>
+        <div class="content-box">
+            <h3>Compare Data Against Benchmarks</h3>
+            <p>Compare your data against normative benchmarks for valuable insights.</p>
+        </div>
+        <div class="video-container">
+            <p>Video embed of product showcase here</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About PTmeasures</h2>
+        <p>
+            PTmeasures is dedicated to delivering a secure and comprehensive outcome measure tracking solution for
+            physical therapy professionals. Our platform empowers clinics to make informed decisions based on real-time
+            data insights.
+        </p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>
+            PTmeasures offers a secure submission platform to send patient data to our Google Sheets database. Leverage
+            powerful analytics tools like Power BI to visualize clinic and clinician performance metrics. Our service
+            facilitates clinic performance tracking, individual clinician assessment, and normative data comparisons.
+        </p>
+        <button onclick="openPopup()">Submit Patient Outcomes</button>
+    </section>
+
+    <section id="contact">
+        <h2>Contact PTmeasures</h2>
+        <p>
+            <a href="mailto:info@ptmeasures.com">info@ptmeasures.com</a>
+        </p>
+    </section>
+
+    <div class="popup" id="popup">
+        <h3>Submit Patient Outcomes</h3>
+        <form id="patientOutcomeForm" onsubmit="submitPatientOutcome(); return false;">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+            <label for="patientDOB">Patient DOB:</label>
+            <input type="date" id="patientDOB" name="patientDOB" required>
+            <label for="outcomeMeasure">Outcome Measure:</label>
+            <input type="text" id="outcomeMeasure" name="outcomeMeasure" required>
+            <label for="score">Score:</label>
+            <input type="number" id="score" name="score" required>
+            <label for="evaluatingTherapist">Evaluating Therapist:</label>
+            <input type="text" id="evaluatingTherapist" name="evaluatingTherapist" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+    <footer>
+        <div id="footer-content">
+            <p>&copy; 2023 PTmeasures. All rights reserved.</p>
+            <p><a href="mailto:info@ptmeasures.com">Contact us</a></p>
+        </div>
+    </footer>
+
+    <script>
         window.onscroll = function () {
             var nav = document.querySelector('nav');
             var footer = document.querySelector('footer');
