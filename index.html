@@ -1,335 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTmeasures - Outcome Measure Tracking Service</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f8f8f8;
-            color: #333;
-        }
-
-        header {
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            margin-bottom: 20px;
-        }
-
-        .login-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .login-container a {
-            background-color: #0070c9;
-            color: #fff;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        nav {
-            background-color: #0070c9;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-            margin-bottom: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        section {
-            padding: 40px;
-            background-color: #fff;
-            margin: 20px auto;
-            overflow: hidden;
-            max-width: 1200px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-        }
-
-        button {
-            background-color: #0070c9;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #00508f;
-        }
-
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        input {
-            width: calc(100% - 16px);
-            padding: 12px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #333;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        footer {
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 2em;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .content-box {
-            float: left;
-            width: 48%;
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .video-container {
-            float: none; /* Center the video container */
-            clear: both;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-    </style>
-
-    <script>
-        function openPopup() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function submitPatientOutcome() {
-            var patientName = document.getElementById("patientName").value;
-            var patientDOB = document.getElementById("patientDOB").value;
-            var outcomeMeasure = document.getElementById("outcomeMeasure").value;
-            var score = document.getElementById("score").value;
-            var evaluatingTherapist = document.getElementById("evaluatingTherapist").value;
-
-            var data = {
-                patientName: patientName,
-                patientDOB: patientDOB,
-                outcomeMeasure: outcomeMeasure,
-                score: score,
-                evaluatingTherapist: evaluatingTherapist,
-            };
-
-            fetch('https://your-actual-endpoint.com', {  // Replace with your actual endpoint
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-                .then(response => response.text())
-                .then(message => {
-                    console.log(message);
-                    // You can add additional logic here, such as displaying a success message
-                    // or closing the popup after successful submission.
-                })
-                .catch(error => console.error(error));
-
-            closePopup();
-        }
-    </script>
+    <title>PTmeasures - Outcome Measure Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
 </head>
-
 <body>
-
     <header>
-        <h1 style="font-size: 2em;">PTmeasures - Outcome Measure Tracking Service</h1>
+        <div class="container">
+            <h1>PTmeasures</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#login" id="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Advanced Outcome Measure Tracking for Physical Therapy</h2>
+                <p>Secure, user-friendly data tracking and analytics for clinics and therapists.</p>
+                <button id="get-started">Get Started</button>
+            </div>
+        </section>
 
-    <div class="login-container">
-        <button onclick="login()">Login</button>
-        <button onclick="signUp()">Sign Up</button>
-    </div>
+        <section class="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h3>Secure Data Storage</h3>
+                        <p>HIPAA-compliant encrypted patient outcome tracking.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Real-time Analytics</h3>
+                        <p>Visual dashboards powered by Power BI for actionable insights.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Easy Data Submission</h3>
+                        <p>Simple and fast outcome measure reporting with de-identification.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <section id="home">
-        <h2>Welcome to PTmeasures</h2>
-        <div class="content-box">
-            <h3>Track Clinic Performance</h3>
-            <p>Measure and analyze clinic performance with our sophisticated tracking tools.</p>
-        </div>
-        <div class="content-box">
-            <h3>Assess Clinician Effectiveness</h3>
-            <p>Evaluate individual clinician effectiveness to optimize your practice.</p>
-        </div>
-        <div class="content-box">
-            <h3>Compare Data Against Benchmarks</h3>
-            <p>Compare your data against normative benchmarks for valuable insights.</p>
-        </div>
-        <div class="video-container">
-            <p>Video embed of product showcase here</p>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>About PTmeasures</h2>
-        <p>
-            PTmeasures is dedicated to delivering a secure and comprehensive outcome measure tracking solution for
-            physical therapy professionals. Our platform empowers clinics to make informed decisions based on real-time
-            data insights.
-        </p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>
-            PTmeasures offers a secure submission platform to send patient data to our Google Sheets database. Leverage
-            powerful analytics tools like Power BI to visualize clinic and clinician performance metrics. Our service
-            facilitates clinic performance tracking, individual clinician assessment, and normative data comparisons.
-        </p>
-        <button onclick="openPopup()">Submit Patient Outcomes</button>
-    </section>
-
-    <section id="contact">
-        <h2>Contact PTmeasures</h2>
-        <p>
-            <a href="mailto:info@ptmeasures.com">info@ptmeasures.com</a>
-        </p>
-    </section>
-
-    <div class="popup" id="popup">
-        <h3>Submit Patient Outcomes</h3>
-        <form id="patientOutcomeForm" onsubmit="submitPatientOutcome(); return false;">
-            <label for="patientName">Patient Name:</label>
-            <input type="text" id="patientName" name="patientName" required>
-            <label for="patientDOB">Patient DOB:</label>
-            <input type="date" id="patientDOB" name="patientDOB" required>
-            <label for="outcomeMeasure">Outcome Measure:</label>
-            <input type="text" id="outcomeMeasure" name="outcomeMeasure" required>
-            <label for="score">Score:</label>
-            <input type="number" id="score" name="score" required>
-            <label for="evaluatingTherapist">Evaluating Therapist:</label>
-            <input type="text" id="evaluatingTherapist" name="evaluatingTherapist" required>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+        <section class="video-demo">
+            <div class="container">
+                <h2>Video Demonstration of Features</h2>
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div id="footer-content">
+        <div class="container">
             <p>&copy; 2023 PTmeasures. All rights reserved.</p>
-            <p><a href="mailto:info@ptmeasures.com">Contact us</a></p>
+            <p><a href="mailto:info@ptmeasures.com">Contact Us</a></p>
         </div>
     </footer>
-
-    <script>
-        function login() {
-            // Add your login logic here
-            alert('Login functionality to be implemented.');
-        }
-
-        function signUp() {
-            // Add your sign-up logic here
-            alert('Sign-up functionality to be implemented.');
-        }
-
-        window.onscroll = function () {
-            var nav = document.querySelector('nav');
-            var footer = document.querySelector('footer');
-
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - footer.offsetHeight) {
-                footer.style.display = 'block';
-            } else {
-                footer.style.display = 'none';
-            }
-        };
-    </script>
-
 </body>
-
 </html>
